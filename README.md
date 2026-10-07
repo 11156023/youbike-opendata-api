@@ -10,7 +10,9 @@
 | 技術 | Python 3.12+、FastAPI、SQLAlchemy 2、SQLite、Pydantic v2、uvicorn |
 | 線上文件 | Swagger UI `/docs`、ReDoc `/redoc`、OpenAPI JSON `/openapi.json` |
 | AI 輔助工具 | Claude Code（設定檔：[`CLAUDE.md`](CLAUDE.md)） |
-| 雲端部署 | Render（[`render.yaml`](render.yaml) + [`Dockerfile`](Dockerfile)）；API Server URL：_部署後填入_ |
+| 雲端部署 | Render（[`render.yaml`](render.yaml) + [`Dockerfile`](Dockerfile)） |
+| **API Server URL** | **https://youbike-opendata-api.onrender.com** （Swagger UI：[/docs](https://youbike-opendata-api.onrender.com/docs)） |
+| GitHub | https://github.com/11156023/youbike-opendata-api |
 
 ## 目錄結構
 
@@ -121,7 +123,7 @@ curl "http://127.0.0.1:8000/api/v1/stations?q=捷運&min_bikes=5&sort=available_
 curl -X POST http://127.0.0.1:8000/api/v1/stations -H "Content-Type: application/json" -d "{\"sno\":\"DEMO0001\",\"name_zh\":\"YouBike2.0_示範站\",\"area_id\":1,\"latitude\":25.033,\"longitude\":121.5654,\"total_docks\":20,\"available_bikes\":8,\"available_docks\":12}"
 ```
 
-更多 Request / Response 實例見 [docs/api_examples.md](docs/api_examples.md)。
+更多 Request / Response 實例見 [docs/api_examples.md](docs/api_examples.md)（本機）與 [docs/api_examples_render.md](docs/api_examples_render.md)（雲端 Render 實測）。
 
 ## API 測試
 
