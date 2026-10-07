@@ -152,9 +152,11 @@ pytest -q
 
 ## 雲端部署（Render）
 
-1. 將本專案推到 GitHub。
-2. Render Dashboard → New → **Blueprint** → 連結 repo，Render 會讀取 `render.yaml` 以 Docker 方式建置（建置時自動匯入資料）。
-3. 部署完成後，API Server URL 為 `https://<service-name>.onrender.com`，Swagger UI 在 `/docs`。
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/11156023/youbike-opendata-api)
+
+1. 點上方按鈕（或 Render Dashboard → New → **Blueprint** → 連結本 repo），Render 會讀取 `render.yaml` 以 Docker 方式建置，建置時自動匯入 Open Data。
+2. 按 **Deploy Blueprint**，等待約 3～5 分鐘建置完成。
+3. 部署完成後，API Server URL 為 `https://youbike-opendata-api.onrender.com`（名稱若被占用 Render 會自動加後綴），Swagger UI 在 `/docs`。
 
 免費方案閒置後會休眠，第一次請求需等待約 30 秒。SQLite 存於容器內，重新部署會還原為原始 Open Data。
 
