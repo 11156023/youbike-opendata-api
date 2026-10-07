@@ -1,0 +1,23 @@
+meta {
+  name: 02 Search Stations
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api}}/stations?q=捷運&min_bikes=5&sort=available_bikes&order=desc&limit=5
+  body: none
+  auth: none
+}
+
+params:query {
+  q: 捷運
+  min_bikes: 5
+  sort: available_bikes
+  order: desc
+  limit: 5
+}
+
+assert {
+  res.status: eq 200
+}

@@ -1,0 +1,15 @@
+meta {
+  name: 01 Summary
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api}}/stats/summary
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

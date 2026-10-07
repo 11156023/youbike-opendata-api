@@ -1,0 +1,26 @@
+meta {
+  name: 11 Report Availability (422 overflow)
+  type: http
+  seq: 11
+}
+
+patch {
+  url: {{api}}/stations/BRUNO0001/availability
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "available_bikes": 20,
+    "available_docks": 20
+  }
+}
+
+assert {
+  res.status: eq 422
+}
+
+docs {
+  可借 + 可還 超過總車位 30，回 422。
+}

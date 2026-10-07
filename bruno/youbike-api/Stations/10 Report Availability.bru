@@ -1,0 +1,23 @@
+meta {
+  name: 10 Report Availability
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{api}}/stations/BRUNO0001/availability
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "available_bikes": 5,
+    "available_docks": 25
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.available_bikes: eq 5
+}

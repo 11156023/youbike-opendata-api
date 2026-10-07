@@ -1,0 +1,19 @@
+meta {
+  name: 07 Delete Area
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{api}}/areas/{{areaId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}
+
+docs {
+  請先執行 Stations / 12 Delete Station，否則此行政區仍有站點會回 409。
+}

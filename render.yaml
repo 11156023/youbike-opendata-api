@@ -1,0 +1,11 @@
+# Render Blueprint：在 Render Dashboard 選 New > Blueprint，連結此 repo 即可一鍵部署
+services:
+  - type: web
+    name: youbike-opendata-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////app/data/youbike.db

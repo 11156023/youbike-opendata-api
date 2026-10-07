@@ -1,0 +1,16 @@
+meta {
+  name: 04 Get Station
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{api}}/stations/500101001
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.sno: eq 500101001
+}

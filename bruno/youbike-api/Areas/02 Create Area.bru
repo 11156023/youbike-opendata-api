@@ -1,0 +1,29 @@
+meta {
+  name: 02 Create Area
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api}}/areas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name_zh": "Bruno測試區",
+    "name_en": "Bruno Test Dist."
+  }
+}
+
+assert {
+  res.status: eq 201
+  res.body.station_count: eq 0
+}
+
+script:post-response {
+  if (res.getStatus() === 201) {
+    bru.setVar("areaId", res.getBody().id);
+  }
+}

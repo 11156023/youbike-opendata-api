@@ -1,0 +1,21 @@
+meta {
+  name: 01 List Areas
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api}}/areas
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  if (res.getStatus() === 200 && res.getBody().length) {
+    bru.setVar("firstAreaId", res.getBody()[0].id);
+  }
+}

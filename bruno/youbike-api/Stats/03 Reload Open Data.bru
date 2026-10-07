@@ -1,0 +1,23 @@
+meta {
+  name: 03 Reload Open Data
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api}}/admin/reload?refresh=false
+  body: none
+  auth: none
+}
+
+params:query {
+  refresh: false
+}
+
+assert {
+  res.status: eq 200
+}
+
+docs {
+  refresh=true 會先從臺北市 Open Data 來源重新下載最新即時資料再匯入（upsert）。
+}

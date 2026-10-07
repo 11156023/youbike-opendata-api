@@ -1,0 +1,15 @@
+meta {
+  name: 12 Delete Station
+  type: http
+  seq: 12
+}
+
+delete {
+  url: {{api}}/stations/BRUNO0001
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

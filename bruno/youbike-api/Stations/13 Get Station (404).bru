@@ -1,0 +1,15 @@
+meta {
+  name: 13 Get Station (404)
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{api}}/stations/BRUNO0001
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}

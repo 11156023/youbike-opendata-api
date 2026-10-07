@@ -1,0 +1,15 @@
+meta {
+  name: 02 Area Stats
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api}}/stats/areas
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

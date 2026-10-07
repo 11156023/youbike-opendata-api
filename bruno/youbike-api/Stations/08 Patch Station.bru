@@ -1,0 +1,23 @@
+meta {
+  name: 08 Patch Station
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{api}}/stations/BRUNO0001
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "is_active": false,
+    "name_zh": "YouBike2.0_Bruno測試站(暫停)"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.is_active: eq false
+}

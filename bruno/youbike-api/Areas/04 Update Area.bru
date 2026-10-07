@@ -1,0 +1,22 @@
+meta {
+  name: 04 Update Area
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{api}}/areas/{{areaId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name_en": "Bruno Test District (updated)"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.name_en: eq Bruno Test District (updated)
+}

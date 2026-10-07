@@ -1,0 +1,28 @@
+meta {
+  name: 01 List Stations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api}}/stations?limit=5&offset=0&sort=sno&order=asc
+  body: none
+  auth: none
+}
+
+params:query {
+  limit: 5
+  offset: 0
+  sort: sno
+  order: asc
+  ~q: 捷運
+  ~area_id: 1
+  ~is_active: true
+  ~min_bikes: 5
+  ~min_docks: 5
+}
+
+assert {
+  res.status: eq 200
+  res.body.items: length 5
+}

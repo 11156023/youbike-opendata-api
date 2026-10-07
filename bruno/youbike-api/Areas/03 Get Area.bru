@@ -1,0 +1,16 @@
+meta {
+  name: 03 Get Area
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api}}/areas/{{areaId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.name_zh: eq Bruno測試區
+}

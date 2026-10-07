@@ -1,0 +1,23 @@
+meta {
+  name: 03 Nearby Stations
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api}}/stations/nearby?lat=25.0418&lng=121.5436&radius=500&limit=5&only_with_bikes=true
+  body: none
+  auth: none
+}
+
+params:query {
+  lat: 25.0418
+  lng: 121.5436
+  radius: 500
+  limit: 5
+  only_with_bikes: true
+}
+
+assert {
+  res.status: eq 200
+}
